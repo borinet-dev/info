@@ -1,20 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://borinet-dev.github.io/css/favicon.ico" type="image/x-icon">
-<title>환생 시스템 안내</title>
-<style>
-@font-face{font-family:'Borinet';src:url('https://borinet-dev.github.io/css/Fonts/borinet.ttf') format('truetype');font-weight:normal;font-style:normal;}
-html,body{margin:0;padding:0;background:#2A2A2A;}
-body{padding:28px 10px;}
-a{color:inherit;}
-img{max-width:100%;}
-@media (max-width:560px){body{padding:0}.liberty-root{border-radius:0!important;padding:14px 10px 22px!important}}
-</style>
+	<script>
+		(function() {
+			// 사용자 에이전트 정보를 가져옵니다.
+			var userAgent = navigator.userAgent.toLowerCase();
+
+			// 브라우저가 크롬인지 확인합니다.
+			var isChrome = /chrome/.test(userAgent) && !/edge|edg|opr/.test(userAgent);
+
+			// 크롬이 아니라면 팝업 창을 띄웁니다.
+			if (!isChrome) {
+				alert('이 페이지는 크롬에 최적화되어 있습니다. 크롬 브라우저에서 접속해 주세요.');
+			}
+		})();
+	</script>
+	<style>
+		.count-color { color: red; text-shadow: 2px 2px 2px black; }
+		.info-color { color: yellow; text-shadow: 2px 2px 2px black; }
+		.info-color2 { color: red; text-shadow: 1px 1px 1px black; }
+		.info-color3 { color: black; text-shadow: 1px 1px 1px gray; }
+		.s1 { text-shadow: 4px 4px 5px black; }
+		.s2 { text-shadow: 2px 2px 2px black; }
+		.s3 { text-shadow: 1px 1px 1px black; }
+		.bg-2a2a2a { background-color: #2a2a2a !important; }
+		.bg-2a2a2a .nav-link { color: white !important; transition: color 0.3s ease-in-out; }
+		.bg-2a2a2a .nav-link:hover { color: #90ee90 !important; }
+		.border-bottom { color: red !important; text-decoration: none; transition: color 0.3s ease-in-out; }
+		.border-bottom:hover { color: darkred !important; }
+		body { background-color: #2a2a2a; color: white; font-family: sans-serif; line-height: 1.6; }
+		table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+		th, td { border: 1px solid white; padding: 8px; }
+		th { background-color: #444; }
+		h3 { margin-top: 30px; color: #ffd700; }
+	</style>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="https://borinet-dev.github.io/css/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="https://borinet-dev.github.io/css/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://borinet-dev.github.io/css/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="https://borinet-dev.github.io/css/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+	<link href="https://borinet-dev.github.io/css/css/board.css" rel="stylesheet">
+	<link href="https://borinet-dev.github.io/css/css/style2.css" rel="stylesheet">
+	<link href="https://borinet-dev.github.io/css/css/style3.css" rel="stylesheet">
 </head>
-<body>
+
+<body style="background-color: #2a2a2a;">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+		<!-- Header (외부 include) -->
+		<div id="header-placeholder"></div>
+
+		<script>
+		(function(){
+		  const url = "https://borinet-dev.github.io/head/header.html?ver=" + Date.now();
+		  fetch(url).then(r=>r.text()).then(html=>{
+			const holder = document.getElementById('header-placeholder');
+			// wrapper <div>를 nav로 교체 → sticky-top 정상 동작
+			holder.outerHTML = html;
+
+			// favicon/제목 반영
+			const temp = document.createElement("div");
+			temp.innerHTML = html;
+
+			const fav = temp.querySelector('link[rel="navi-favicon"]');
+			if (fav){
+			  let headIcon = document.head.querySelector("link[rel~='icon']");
+			  if(!headIcon){
+				headIcon=document.createElement('link');
+				headIcon.rel='icon';
+				document.head.appendChild(headIcon);
+			  }
+			  headIcon.href = fav.getAttribute('href');
+			}
+
+			const titleMeta = temp.querySelector('meta[name="web-title"]');
+			if (titleMeta) document.title = titleMeta.content;
+		  }).catch(console.error);
+		})();
+		</script>
+	<!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white mb-4 animated slideInDown s2">환생 시스템</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Start -->
+<div id="viewer" class="white viewer_style rd_nav_blk">
+
 <div class="liberty-root" style="max-width:860px;margin:0 auto;padding:20px 16px 28px 16px;box-sizing:border-box;font-family:'Borinet','Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#120F1D;color:#E8EDF5;border:1px solid #5D3C86;border-radius:18px;box-shadow:0 18px 46px rgba(0,0,0,.36);"><div style="position:relative;overflow:hidden;background:linear-gradient(135deg,#241936 0%,#15101F 58%,#2A1E3F 100%);border:1px solid #5D3C86;border-radius:18px;padding:20px 18px;margin:0 0 18px 0;box-shadow:0 14px 32px rgba(0,0,0,.28);box-sizing:border-box;"><div style="position:absolute;right:-42px;top:-48px;width:150px;height:150px;border-radius:50%;background:rgba(220,194,127,.12);filter:blur(1px);"></div><div style="position:relative;z-index:1;"><div style="font-size:24px;line-height:1.25;font-weight:900;color:#FFD966;letter-spacing:-0.5px;text-shadow:0 2px 12px rgba(0,0,0,.35);">환생 시스템 안내</div><div style="font-size:14px;line-height:1.7;color:#E8EDF5;margin-top:8px;"><span style="color:#FFD966;font-weight:800">85레벨</span>을 달성한 캐릭터가 환생 매니저를 통해 진행할 수 있는 <span style="color:#FF8888;font-weight:800">초장기 성장형 콘텐츠</span>입니다. 환생을 진행해도 캐릭터 레벨은 <span style="color:#FFD966;font-weight:800">85레벨로 유지</span>됩니다.</div><div style="margin-top:10px;"><span style="display:inline-block;margin:4px 5px 0 0;padding:5px 10px;border-radius:999px;border:1px solid #8460B0;background:#1A1427;color:#FFD966;font-size:12px;font-weight:800;line-height:1.2;">85레벨</span><span style="display:inline-block;margin:4px 5px 0 0;padding:5px 10px;border-radius:999px;border:1px solid #8460B0;background:#1A1427;color:#FFD966;font-size:12px;font-weight:800;line-height:1.2;">환생 경험치</span><span style="display:inline-block;margin:4px 5px 0 0;padding:5px 10px;border-radius:999px;border:1px solid #8460B0;background:#1A1427;color:#FFD966;font-size:12px;font-weight:800;line-height:1.2;">환생 포인트</span><span style="display:inline-block;margin:4px 5px 0 0;padding:5px 10px;border-radius:999px;border:1px solid #8460B0;background:#1A1427;color:#FFD966;font-size:12px;font-weight:800;line-height:1.2;">클래스별 적용</span></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">기본 진행 방식</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">첫 환생 이후부터는 일반 경험치와 SP를 획득하지 않으며, 사냥을 통해 환생 경험치를 획득하게 됩니다.</div><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager1.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager1.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 매니저</div></div><div style="background:#25192D;border:1px solid #FFAA55;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="font-size:15px;font-weight:900;color:#FFAA55;margin:0 0 8px 0;">레벨 조건</div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">85레벨을 달성하지 않은 캐릭터는 환생을 진행할 수 없습니다.</div></div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">환생 경험치 획득</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/sysmsg.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/sysmsg.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 경험치 안내 메시지</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">환생 경험치는 자신과 같거나 높은 레벨의 몬스터를 사냥할 때만 획득할 수 있습니다.</div><div style="background:#25192D;border:1px solid #FF8888;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="font-size:15px;font-weight:900;color:#FF8888;margin:0 0 8px 0;">중요</div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;"><span style="color:#FF8888;font-weight:800">자신보다 낮은 레벨의 몬스터는 환생 경험치를 지급하지 않습니다.</span></div></div></div><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager3.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager3.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 경험치 확인</div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">환생 진행</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">환생 경험치는 환생 매니저 화면과 캐릭터 정보창의 경험치 바를 통해 확인할 수 있습니다.</div><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager4.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager4.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 진행 가능</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">85레벨 달성 후 환생 매니저를 찾아가면 환생을 진행할 수 있습니다.</div><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/rebirth1.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/rebirth1.png" alt="" style="display:block;max-width:80%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 진행 화면</div></div><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/rebirth2.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/rebirth2.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 완료</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">환생 경험치가 <span style="color:#FFD966;font-weight:800">100%</span>가 되면 다음 환생을 진행할 수 있습니다. 환생을 진행할 때마다 <span style="color:#FFD966;font-weight:800">환생 포인트</span>를 획득합니다.</div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">환생 포인트 강화</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager2.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager2.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">환생 포인트 강화</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">획득한 환생 포인트는 환생 매니저를 통해 패시브 능력 강화에 사용할 수 있습니다.</div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">환생 포인트 강화는 크게 생존 계열, 사냥 계열, PvP 계열, 기본 스탯 강화로 나뉩니다.</div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">생존 계열 강화</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">환생 포인트 1P를 사용하여 1단계씩 강화할 수 있습니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">단계당 HP / MP / CP / 물리 방어력 / 마법 방어력이 1% 증가합니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">최대 10단계까지 강화할 수 있습니다.</div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">사냥 계열 강화</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">환생 포인트 1P를 사용하여 1단계씩 강화할 수 있습니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">단계당 몬스터에게 주는 데미지가 1% 증가합니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">단계당 몬스터에게 받는 데미지가 1% 감소합니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">최대 10단계까지 강화할 수 있습니다.</div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">PvP 계열 강화</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">환생 포인트 1P를 사용하여 1단계씩 강화할 수 있습니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">단계당 플레이어에게 주는 데미지가 1% 증가합니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">단계당 플레이어에게 받는 데미지가 1% 감소합니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">최대 10단계까지 강화할 수 있습니다.</div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">기본 스탯 강화</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">STR / DEX / CON / INT / WIT / MEN 스탯을 강화할 수 있습니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">각 스탯은 환생 포인트 5P를 사용하여 1단계씩 강화할 수 있습니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">각 스탯은 최대 +3까지 강화할 수 있습니다.</div></div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">강화 상태 확인</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager5.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager5.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">현재 강화 상태</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">이미 강화한 항목은 현재 강화 상태 영역에서 확인할 수 있습니다.</div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">사용한 포인트, 남은 포인트, 총 획득 포인트도 함께 확인할 수 있습니다.</div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">클래스별 분리 적용</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="margin:12px 0 16px 0;text-align:center;"><a href="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager6.png" target="_blank" style="display:block;text-decoration:none;"><img src="https://liberty-r2-download.hjt4451.workers.dev/Images/rebirth/manager6.png" alt="" style="display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:14px;border:1px solid #5D3C86;background:#0E0B16;box-shadow:0 10px 26px rgba(0,0,0,.24);" /></a><div style="font-size:13px;color:#B9C0CE;line-height:1.55;margin:8px 2px 0 2px;text-align:center;">클래스별 환생 정보</div></div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">환생 포인트 및 강화 정보는 메인 클래스와 서브 클래스별로 각각 분리되어 적용됩니다.</div><div style="font-size:15px;line-height:1.75;color:#E8EDF5;margin:0 0 10px 0;">따라서 메인 클래스와 서브 클래스의 환생 횟수, 보유 포인트, 강화 상태가 서로 다를 수 있습니다.</div></div></div><div style="margin:18px 0 0 0;padding:0;"><div style="display:flex;align-items:center;gap:8px;margin:0 0 10px 0;"><div style="width:5px;height:22px;background:#DCC27F;border-radius:8px;box-shadow:0 0 10px rgba(220,194,127,.35);"></div><div style="font-size:19px;font-weight:900;color:#FFD966;letter-spacing:-0.2px;">마무리 안내</div></div><div style="background:#201B2D;border:1px solid #5D3C86;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="background:#271F36;border:1px solid #FFD966;border-radius:14px;padding:14px 16px;margin:12px 0;box-sizing:border-box;"><div style="font-size:15px;font-weight:900;color:#FFD966;margin:0 0 8px 0;">참고</div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">환생 시스템은 단기간에 모두 완성하는 콘텐츠가 아닌 초장기 성장형 콘텐츠입니다.</div></div><div style="display:flex;gap:9px;align-items:flex-start;margin:7px 0;"><div style="min-width:22px;color:#DCC27F;font-weight:900;text-align:right;">•</div><div style="flex:1;font-size:15px;line-height:1.65;color:#E8EDF5;">환생 포인트 강화는 클래스별로 분리 적용되므로, 자주 플레이하는 클래스부터 신중하게 투자하시기 바랍니다.</div></div></div></div></div></div>
-</body>
+
+<br><br>
+   <!-- End -->
+        
+
+    <!-- Copyright Start -->
+	<div id="footer-placeholder"></div>
+	<script>
+	  fetch("https://borinet-dev.github.io/head/footer.html?ver=" + Date.now())
+	    .then(r => r.text())
+	    .then(html => {
+	      document.getElementById("footer-placeholder").innerHTML = html;
+	    });
+	</script>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/wow/wow.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/easing/easing.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/waypoints/waypoints.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/counterup/counterup.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/parallax/parallax.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="https://borinet-dev.github.io/css/lib/lightbox/js/lightbox.min.js"></script>
+
+	<!-- Template Javascript -->
+	<script src="https://borinet-dev.github.io/css/js/main.js"></script>
+    </body>
 </html>
+
