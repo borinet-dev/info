@@ -105,7 +105,7 @@
 	.arena-streak-table{overflow:hidden;border-radius:14px;border:1px solid rgba(220,194,127,.17)}
 	.arena-streak-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(220,194,127,.13)}
 	.arena-streak-row:last-child{border-bottom:0}
-	.arena-streak-row b,.arena-streak-row span{padding:10px 12px;font-size:14px}
+	.arena-streak-row b,.arena-streak-row span{padding:10px 12px;font-size:13px}
 	.arena-streak-row b{background:rgba(220,194,127,.07);color:#f2d995}
 	.arena-streak-row span{color:#eee4d3}
 	.arena-location-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
@@ -155,7 +155,41 @@
 	.arena-champion-reward-card .desc{color:#cfc7b7;font-size:13px;margin-top:4px;line-height:1.65}
 	.arena-champion-reward-info{min-width:0}
 	.arena-champion-reward-info .heading{color:#f6dc9b;font-size:14px;font-weight:900;margin:0 0 8px}
-	.arena-reward-tags{display:flex;flex-wrap:wrap;gap:9px}
+	.arena-reward-tags {
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(0, 1fr));
+	  gap: 10px;
+	}
+	.arena-flow-card-head {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	}
+
+	.arena-flow-card-head em {
+	  flex: 0 0 auto;
+	}
+
+	.arena-flow-card-head b {
+	  margin-top: 0;
+	}
+	.arena-step-head {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	}
+
+	.arena-step-head i {
+	  flex: 0 0 auto;
+	}
+
+	.arena-step-head b {
+	  margin-top: 0;
+	}
+
+	.arena-step > span {
+	  margin-top: 8px;
+	}
 	.arena-reward-tag{padding:8px 11px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);color:#e9e1d2;font-size:13px;line-height:1.45;word-break:keep-all;overflow-wrap:break-word;white-space:normal}
 	.arena-reward-note{color:#bdb5a8;font-size:13px;margin-top:14px;line-height:1.7}
 	.arena-feature-grid-v10{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
@@ -265,11 +299,39 @@
 <section class="arena-section">
 <div class="arena-section-title">회차 진행 순서</div>
 <div class="arena-flow">
-<div class="arena-flow-card"><em>00</em><b>배팅 시작</b><span>새 회차 선수 공개와 함께 배팅이 열립니다.</span></div>
-<div class="arena-flow-card"><em>04</em><b>마감 안내</b><span>배팅 마감 1분 전 안내가 방송됩니다.</span></div>
-<div class="arena-flow-card"><em>05</em><b>배팅 마감</b><span>선택과 금액 변경이 종료되고 배팅률이 확정됩니다.</span></div>
-<div class="arena-flow-card"><em>06</em><b>선수 입장</b><span>입장 연출과 카운트다운 후 경기가 시작됩니다.</span></div>
+  <div class="arena-flow-card">
+    <div class="arena-flow-card-head">
+      <em>1</em>
+      <b>배팅 시작</b>
+    </div>
+    <span>새 회차 선수 공개와 함께 배팅이 열립니다.</span>
+  </div>
+
+  <div class="arena-flow-card">
+    <div class="arena-flow-card-head">
+      <em>2</em>
+      <b>마감 안내</b>
+    </div>
+    <span>배팅 마감 1분 전 안내가 방송됩니다.</span>
+  </div>
+
+  <div class="arena-flow-card">
+    <div class="arena-flow-card-head">
+      <em>3</em>
+      <b>배팅 마감</b>
+    </div>
+    <span>선택과 금액 변경이 종료되고 배팅률이 확정됩니다.</span>
+  </div>
+
+  <div class="arena-flow-card">
+    <div class="arena-flow-card-head">
+      <em>4</em>
+      <b>선수 입장</b>
+    </div>
+    <span>입장 연출과 카운트다운 후 경기가 시작됩니다.</span>
+  </div>
 </div>
+
 <div class="arena-wide-scene">
 <img alt="몬스터 투기장 전체 전경" src="https://borinet-dev.github.io/img/arena_battle/arena_battle_overview_illustration.png"/>
 <div class="arena-scene-copy">회차 시작부터 선수 입장과 경기 종료까지, 모든 진행은 투기장 안에서 확인할 수 있습니다.</div>
@@ -285,10 +347,37 @@
 <span>1천만 아데나</span><span>3천만 아데나</span><span>5천만 아데나</span><span>1억 아데나</span>
 </div>
 <div class="arena-step-grid" style="margin-top:14px">
-<div class="arena-step"><i>1</i><b>선택</b><span>승리선수 예측 또는 무승부 중 하나를 선택합니다.</span></div>
-<div class="arena-step"><i>2</i><b>금액 선택</b><span>원하는 배팅 금액을 선택합니다.</span></div>
-<div class="arena-step"><i>3</i><b>최종 확인</b><span>선택한 내용과 금액을 다시 확인합니다.</span></div>
-<div class="arena-step"><i>4</i><b>배팅 확정</b><span>확정 후에는 변경하거나 취소할 수 없습니다.</span></div>
+  <div class="arena-step">
+    <div class="arena-step-head">
+      <i>1</i>
+      <b>선택</b>
+    </div>
+    <span>승리선수 예측 또는 무승부 중 하나를 선택합니다.</span>
+  </div>
+
+  <div class="arena-step">
+    <div class="arena-step-head">
+      <i>2</i>
+      <b>금액 선택</b>
+    </div>
+    <span>원하는 배팅 금액을 선택합니다.</span>
+  </div>
+
+  <div class="arena-step">
+    <div class="arena-step-head">
+      <i>3</i>
+      <b>최종 확인</b>
+    </div>
+    <span>선택한 내용과 금액을 다시 확인합니다.</span>
+  </div>
+
+  <div class="arena-step">
+    <div class="arena-step-head">
+      <i>4</i>
+      <b>배팅 확정</b>
+    </div>
+    <span>확정 후에는 변경하거나 취소할 수 없습니다.</span>
+  </div>
 </div>
 <div class="arena-wide-scene">
 <img alt="몬스터 투기장 1대1 전투" src="https://borinet-dev.github.io/img/arena_battle/arena_battle_clash_illustration.png"/>
@@ -312,7 +401,7 @@
 <div class="arena-streak-row"><b>2연승</b><span>기본 적중 상금의 1.5배</span></div>
 <div class="arena-streak-row"><b>3연승</b><span>기본 적중 상금의 2.5배</span></div>
 <div class="arena-streak-row"><b>4연승</b><span>기본 적중 상금의 4.5배</span></div>
-<div class="arena-streak-row"><b>5연승</b><span>기본 적중 상금의 8배 · 투기장 챔피언 증표 1개 · 자동 지급</span></div>
+<div class="arena-streak-row"><b>5연승</b><span>기본 적중 상금의 8배<br>투기장 챔피언 증표 1개<br>자동 지급</span></div>
 </div>
 </div>
 </div>
@@ -342,11 +431,10 @@
           <span class="arena-reward-tag">증표 5개 → 투기장 영웅 상자</span>
           <span class="arena-reward-tag">증표 10개 → 투기장 챔피언 상자</span>
         </div>
-        <div class="arena-reward-note">투기장 매니저 레온의 거래 메뉴에서 원하는 상자로 교환할 수 있습니다. 각 상자는 개봉 시 구성된 보상 중 1종을 획득합니다.</div>
+        <div class="arena-reward-note">투기장 매니저 레온의 거래 메뉴에서 원하는 상자로 교환할 수 있습니다.<br>각 상자는 개봉 시 구성된 보상 중 1종을 획득합니다.</div>
       </div>
     </div>
   </div>
-  <div class="arena-reward-note">상자 등급이 높을수록 희귀 강화 아이템과 특수 보상의 비중이 높아집니다.</div>
 </section>
 <section class="arena-section">
   <h2 class="arena-section-title">챔피언 증표 교환 상자</h2>
