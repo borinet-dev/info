@@ -61,7 +61,7 @@
     .race-image-split.reverse .race-image-box { order:2; }
     .race-image-box img { width:100%; border-radius:20px; border:1px solid rgba(220,194,127,.18); box-shadow:0 16px 34px rgba(0,0,0,.28); }
     .race-text-box p { margin:0 0 12px; color:#ddd5c8; font-size:15px; }
-    .race-text-box ul, .race-note-section ul { margin:0; padding-left:20px; color:#ddd5c8; font-size:14px; }
+    .race-text-box ul, .race-note-section ul { margin:0; padding-left:20px; color:#ddd5c8; font-size:13px; }
     .race-text-box li, .race-note-section li { margin:7px 0; }
     .race-flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
     .race-flow div, .race-use-grid div { position:relative; border-radius:17px; padding:18px 16px; border:1px solid rgba(255,255,255,.08); background:radial-gradient(circle at 100% 0%,rgba(220,194,127,.10),transparent 34%),rgba(0,0,0,.18); min-width:0; }
@@ -102,7 +102,33 @@
     .race-master-tags{display:flex;flex-wrap:wrap;gap:9px}
     .race-master-tag{padding:8px 11px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);color:#e9e1d2;font-size:13px;line-height:1.45}
     .race-master-note{color:#bdb5a8;font-size:13px;margin-top:14px;line-height:1.7}
-    .race-master-box-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+    .race-master-box-grid{
+	  display:grid;
+	  grid-template-columns:repeat(2, minmax(0, 1fr));
+	  gap:16px;
+	}
+
+	.race-flow-head {
+	  display: flex !important;
+	  align-items: center;
+	  gap: 10px;
+	}
+
+	.race-flow-head b,
+	.race-flow-head strong {
+	  margin: 0;
+	}
+
+	.race-use-head {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	}
+
+	.race-use-head b {
+	  margin-top: 0;
+	}
+
     .race-master-box{padding:16px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.075);background:rgba(0,0,0,.18)}
     .race-master-box img{width:64px!important;height:64px!important;max-width:64px!important;margin:0 0 10px!important;object-fit:cover;filter:drop-shadow(0 7px 12px rgba(0,0,0,.5))}
     .race-master-box .title{color:#fff1cf;font-size:16px;font-weight:900;margin:7px 0 6px;line-height:1.45}
@@ -185,14 +211,39 @@
     </section>
 
     <section class="race-section">
-      <h3>진행 시간</h3>
-      <div class="race-flow">
-        <div><b>01</b><strong>티켓 판매</strong><span>회차 시작 후 5분 동안 단승/복승 티켓을 구매할 수 있습니다.</span></div>
-        <div><b>02</b><strong>레이스 시작 전 안내</strong><span>레이스 시작 전 안내 메시지와 함께 배당률을 확인할 수 있습니다.</span></div>
-        <div><b>03</b><strong>레이스 시작</strong><span>티켓 판매가 끝난 뒤 몬스터들이 출발하여 순위가 결정됩니다.</span></div>
-        <div><b>04</b><strong>다음 회차 대기</strong><span>결과 발표와 정산 후 다음 회차 판매 시간이 돌아옵니다.</span></div>
-      </div>
-    </section>
+	  <h3>진행 시간</h3>
+	  <div class="race-flow">
+		<div>
+		  <span class="race-flow-head">
+			<b>1</b>
+			<strong>티켓 판매</strong>
+		  </span>
+		  <span>회차 시작 후 5분 동안 단승/복승 티켓을 구매할 수 있습니다.</span>
+		</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>2</b>
+		<strong>레이스 안내</strong>
+	  </span>
+	  <span>레이스 시작 전 안내 메시지와 함께 배당률을 확인할 수 있습니다.</span>
+	</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>3</b>
+		<strong>레이스 시작</strong>
+	  </span>
+	  <span>티켓 판매가 끝난 뒤 몬스터들이 출발하여 순위가 결정됩니다.</span>
+	</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>4</b>
+		<strong>다음 회차 대기</strong>
+	  </span>
+	  <span>결과 발표와 정산 후 다음 회차 판매 시간이 돌아옵니다.</span>
+	</div>
+	  </div>
+	</section>
+
 
     <section class="race-section race-image-split reverse">
       <div class="race-image-box">
@@ -281,51 +332,76 @@
             <span class="race-master-tag">증표 5개 → 레이스 마스터 영웅 상자</span>
             <span class="race-master-tag">증표 10개 → 레이스 마스터 챔피언 상자</span>
           </div>
-          <div class="race-master-note">몬스터 레이스 운영자의 보상 교환 메뉴에서 원하는 상자로 교환할 수 있습니다. 복승 당첨 티켓 1장당 증표 1개가 지급되며, 각 상자는 개봉 시 구성된 보상 중 1종을 획득합니다.</div>
+          <div class="race-master-note">몬스터 레이스 운영자의 보상 교환 메뉴에서 원하는 상자로 교환할 수 있습니다.<br>복승 당첨 티켓 1장당 증표 1개가 지급되며, 각 상자는 개봉 시 구성된 보상 중 1종을 획득합니다.</div>
         </div>
       </div>
     </section>
 
     <section class="race-section">
-      <h3>레이스 마스터 증표 교환 상자</h3>
-      <div class="race-master-box-grid">
-        <div class="race-master-box">
-          <img src="https://borinet-dev.github.io/img/monster_race/race_master_victory_box.png" alt="레이스 마스터 승리 상자">
-          <div class="title">레이스 마스터 승리 상자</div>
-          <div class="sub">증표 1개 교환 · 보상 1종 획득</div>
-          <div class="text"><b>획득 가능 보상</b><br>아데나 500만~1,000만, 강력 체력 회복제 20~50개, 축복받은 귀환 주문서: 기란성 마을 2~5개, EXP/SP 부스트 주문서 - 중급 1~2개, 앤젤 캣의 축복 상자 1~2개, 축복의 깃털 1~2개, 프리미엄 럭키 타로 카드 2~5개, 참치·고등어·새치 각 10~25개, 아키서스의 주문서 1개</div>
-        </div>
-        <div class="race-master-box">
-          <img src="https://borinet-dev.github.io/img/monster_race/race_master_premium_box.png" alt="레이스 마스터 고급 상자">
-          <div class="title">레이스 마스터 고급 상자</div>
-          <div class="sub">증표 3개 교환 · 보상 1종 획득</div>
-          <div class="text"><b>획득 가능 보상</b><br>잊혀진 유물 40~80개, 수도원 유물 15~30개, 오만·거인·심연의 균열 조각 각 5~10개, 축복받은 무기 강화 주문서 상자, 축복받은 방어구 강화 주문서 상자, 아키서스의 주문서 1~2개, 오만의 강화 보존석</div>
-        </div>
-        <div class="race-master-box">
-          <img src="https://borinet-dev.github.io/img/monster_race/race_master_hero_box.png" alt="레이스 마스터 영웅 상자">
-          <div class="title">레이스 마스터 영웅 상자</div>
-          <div class="sub">증표 5개 교환 · 보상 1종 획득</div>
-          <div class="text"><b>획득 가능 보상</b><br>레어 액세서리 상자, 영웅의 파멸 강화 주문서 상자, 축복받은 무기·갑옷 강화 주문서-R그레이드, 파멸의 무기·갑옷 강화 주문서-S그레이드, 미션 완료 티켓, 무기·방어구 강화석 1~2개, 오만의 균열 감정서</div>
-        </div>
-        <div class="race-master-box">
-          <img src="https://borinet-dev.github.io/img/monster_race/race_master_champion_box.png" alt="레이스 마스터 챔피언 상자">
-          <div class="title">레이스 마스터 챔피언 상자</div>
-          <div class="sub">증표 10개 교환 · 보상 1종 획득</div>
-          <div class="text"><b>획득 가능 보상</b><br>레어 액세서리 상자, 블랙 쿠폰, 프리미엄 계정 쿠폰 7일, MOPP 피아식별 부적, 파멸의 갑옷 강화 주문서-R그레이드, 파멸의 무기 강화 주문서-R그레이드, 거인의 과열 망치, 심연의 승급 보호석</div>
-        </div>
-      </div>
-      <div class="race-master-warning">각 상자는 개봉 시 목록 중 1종만 지급됩니다.</div>
-    </section>
+	  <h3>레이스 마스터 증표 교환 상자</h3>
+	  <div class="race-master-box-grid">
+		<div class="race-master-box">
+		  <img src="https://borinet-dev.github.io/img/monster_race/race_master_victory_box.png" alt="레이스 마스터 승리 상자">
+		  <div class="title">레이스 마스터 승리 상자</div>
+		  <div class="sub">증표 1개 교환 · 보상 1종 획득</div>
+		  <div class="text"><b>획득 가능 보상</b><br>아데나 500만~1,000만, 강력 체력 회복제 20~50개, 축복받은 귀환 주문서: 기란성 마을 2~5개, EXP/SP 부스트 주문서 - 중급 1~2개, 앤젤 캣의 축복 상자 1~2개, 축복의 깃털 1~2개, 프리미엄 럭키 타로 카드 2~5개, 참치·고등어·새치 각 10~25개, 아키서스의 주문서 1개</div>
+		</div>
+		<div class="race-master-box">
+		  <img src="https://borinet-dev.github.io/img/monster_race/race_master_premium_box.png" alt="레이스 마스터 고급 상자">
+		  <div class="title">레이스 마스터 고급 상자</div>
+		  <div class="sub">증표 3개 교환 · 보상 1종 획득</div>
+		  <div class="text"><b>획득 가능 보상</b><br>잊혀진 유물 40~80개, 수도원 유물 15~30개, 오만·거인·심연의 균열 조각 각 5~10개, 축복받은 무기 강화 주문서 상자, 축복받은 방어구 강화 주문서 상자, 아키서스의 주문서 1~2개, 오만의 강화 보존석</div>
+		</div>
+		<div class="race-master-box">
+		  <img src="https://borinet-dev.github.io/img/monster_race/race_master_hero_box.png" alt="레이스 마스터 영웅 상자">
+		  <div class="title">레이스 마스터 영웅 상자</div>
+		  <div class="sub">증표 5개 교환 · 보상 1종 획득</div>
+		  <div class="text"><b>획득 가능 보상</b><br>레어 액세서리 상자, 영웅의 파멸 강화 주문서 상자, 축복받은 무기·갑옷 강화 주문서-R그레이드, 파멸의 무기·갑옷 강화 주문서-S그레이드, 미션 완료 티켓, 무기·방어구 강화석 1~2개, 오만의 균열 감정서</div>
+		</div>
+		<div class="race-master-box">
+		  <img src="https://borinet-dev.github.io/img/monster_race/race_master_champion_box.png" alt="레이스 마스터 챔피언 상자">
+		  <div class="title">레이스 마스터 챔피언 상자</div>
+		  <div class="sub">증표 10개 교환 · 보상 1종 획득</div>
+		  <div class="text"><b>획득 가능 보상</b><br>레어 액세서리 상자, 블랙 쿠폰, 프리미엄 계정 쿠폰 7일, MOPP 피아식별 부적, 파멸의 갑옷 강화 주문서-R그레이드, 파멸의 무기 강화 주문서-R그레이드, 거인의 과열 망치, 심연의 승급 보호석</div>
+		</div>
+	  </div>
+	</section>
 
     <section class="race-section race-use-section">
-      <h3>이용 방법</h3>
-      <div class="race-use-grid">
-        <div><em>1</em><b>매니저 NPC 대화</b><span>몬스터 경주장 매니저에게 말을 겁니다.</span></div>
-        <div><em>2</em><b>티켓 선택</b><span>단승 또는 복승 티켓을 선택합니다.</span></div>
-        <div><em>3</em><b>예상 레인 / 금액 선택</b><span>원하는 레인과 베팅 금액을 선택해 구매합니다.</span></div>
-        <div><em>4</em><b>결과 확인 / 정산</b><span>레이스 결과를 확인하고 티켓을 정산받습니다.</span></div>
-      </div>
-    </section>
+	  <h3>이용 방법</h3>
+	  <div class="race-flow">
+		<div>
+		  <span class="race-flow-head">
+			<b>1</b>
+			<strong>매니저 NPC 대화</strong>
+		  </span>
+		  <span>몬스터 경주장 매니저에게 말을 겁니다.</span>
+		</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>2</b>
+		<strong>티켓 선택</strong>
+	  </span>
+	  <span>단승 또는 복승 티켓을 선택합니다.</span>
+	</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>3</b>
+		<strong>레인 / 금액 선택</strong>
+	  </span>
+	  <span>원하는 레인과 베팅 금액을 선택해 구매합니다.</span>
+	</div>
+	<div>
+	  <span class="race-flow-head">
+		<b>4</b>
+		<strong>결과 확인 / 정산</strong>
+	  </span>
+	  <span>레이스 결과를 확인하고 티켓을 정산받습니다.</span>
+	</div>
+	  </div>
+	</section>
+
+
 
     <section class="race-section race-note-section">
       <h3>참고 사항</h3>
